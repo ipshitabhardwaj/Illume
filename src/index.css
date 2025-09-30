@@ -1,0 +1,404 @@
+/* Import elegant serif font for poems */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Crimson Text', serif;
+  }
+}
+
+/* ==================== BACKGROUND EFFECTS ==================== */
+
+/* Starry background animation */
+.stars-background {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 85%, white, transparent),
+    radial-gradient(2px 2px at 15% 75%, white, transparent),
+    radial-gradient(1px 1px at 45% 20%, white, transparent),
+    radial-gradient(2px 2px at 70% 40%, white, transparent),
+    radial-gradient(1px 1px at 25% 60%, white, transparent);
+  background-size: 200% 200%;
+  animation: stars-twinkle 20s ease-in-out infinite;
+  opacity: 0.25;
+}
+
+@keyframes stars-twinkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.02);
+  }
+}
+
+/* ==================== TEXT EFFECTS ==================== */
+
+/* Title glow effect with warm orange tones */
+.glow-text {
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(255, 140, 66, 0.3),
+    0 0 30px rgba(255, 140, 66, 0.2),
+    0 0 40px rgba(255, 140, 66, 0.1);
+  animation: title-pulse 4s ease-in-out infinite;
+}
+
+@keyframes title-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.4),
+      0 0 20px rgba(255, 140, 66, 0.3),
+      0 0 30px rgba(255, 140, 66, 0.2),
+      0 0 40px rgba(255, 140, 66, 0.1);
+  }
+  50% {
+    text-shadow:
+      0 0 15px rgba(255, 255, 255, 0.5),
+      0 0 25px rgba(255, 140, 66, 0.4),
+      0 0 35px rgba(255, 140, 66, 0.3),
+      0 0 50px rgba(255, 140, 66, 0.2);
+  }
+}
+
+/* ==================== BUTTON EFFECTS ==================== */
+
+/* Oracle button with warm orange glow */
+.oracle-button {
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FF8C42, #FF6B35) !important;
+}
+
+.oracle-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.oracle-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.oracle-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(255, 140, 66, 0.5);
+}
+
+.oracle-button:active {
+  transform: translateY(-1px);
+}
+
+/* ==================== POEM CONTAINER ==================== */
+
+/* Poem container with enhanced backdrop */
+.poem-container {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(30, 20, 50, 0.4));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 140, 66, 0.25);
+  border-radius: 2rem;
+  padding: 3rem 2.5rem;
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 60px rgba(255, 140, 66, 0.1);
+  animation: container-appear 0.8s ease-out;
+  transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes container-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Fade-out animation */
+.poem-container.fading-out {
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(0.98);
+}
+
+/* ==================== VISUAL EFFECTS ==================== */
+
+/* Sparkles effect */
+.sparkles-effect::after {
+  content: '✨';
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 2rem;
+  animation: sparkle-float 3s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+@keyframes sparkle-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+
+/* Ink effect */
+.ink-effect::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255, 140, 66, 0.2), transparent 70%);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: ink-spread 2s ease-out;
+}
+
+@keyframes ink-spread {
+  from {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+  to {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+/* Stars effect */
+.stars-effect::after {
+  content: '⭐';
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  font-size: 1.5rem;
+  animation: star-twinkle 2s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+/* ==================== POEM MEMORY TRAIL ==================== */
+
+.poem-memory {
+  animation: memory-fade 2s ease-out;
+}
+
+@keyframes memory-fade {
+  from {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  to {
+    transform: translateY(-20px);
+    filter: blur(2px);
+  }
+}
+
+/* ==================== POEM TITLE ==================== */
+
+/* Poem title with warm orange glow */
+.poem-title {
+  animation: title-fade-in 1s ease-out forwards;
+  opacity: 0;
+  text-shadow:
+    0 0 15px rgba(255, 140, 66, 0.5),
+    0 0 30px rgba(255, 140, 66, 0.3);
+}
+
+@keyframes title-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ==================== POEM LINES (INK DROP EFFECT) ==================== */
+
+/* Enhanced ink drop animation */
+.poem-line {
+  opacity: 0;
+  filter: blur(10px);
+  animation: ink-drop-enhanced 1.5s ease-out forwards, gentle-sway 6s ease-in-out infinite;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+@keyframes ink-drop-enhanced {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(-8px) scale(0.96);
+  }
+  30% {
+    opacity: 0.3;
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 0.7;
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Gentle floating animation */
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(2px) translateY(-2px);
+  }
+  50% {
+    transform: translateX(0) translateY(-3px);
+  }
+  75% {
+    transform: translateX(-2px) translateY(-2px);
+  }
+}
+
+/* Hover effects with warm orange tones */
+.poem-line:hover {
+  transform: scale(1.03);
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 140, 66, 0.3);
+}
+
+.poem-line::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 140, 66, 0.2),
+    rgba(251, 191, 36, 0.1) 40%,
+    transparent 70%
+  );
+  border-radius: 2rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.poem-line:hover::before {
+  opacity: 1;
+  animation: ripple-enhanced 0.8s ease-out;
+}
+
+@keyframes ripple-enhanced {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* ==================== CONSTELLATION VIEW ==================== */
+
+.constellation-container {
+  padding: 2rem;
+}
+
+.constellation-canvas {
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 140, 66, 0.2);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 640px) {
+  .poem-container {
+    padding: 2.5rem 1.75rem;
+  }
+
+  .poem-line {
+    font-size: 1.125rem;
+  }
+
+  .glow-text {
+    font-size: 3rem;
+  }
+
+  .poem-title {
+    font-size: 1.5rem;
+  }
+
+  .constellation-canvas {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .poem-line {
+    font-size: 1.5rem;
+  }
+
+  .poem-title {
+    font-size: 2.5rem;
+  }
+}
